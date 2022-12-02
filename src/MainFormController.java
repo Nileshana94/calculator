@@ -3,6 +3,8 @@ import javafx.scene.input.MouseEvent;
 
 public class MainFormController {
     public TextField txtInput;
+    private double numOne=0;
+    private char exep='+';
 
     public void numOneOnAction(MouseEvent mouseEvent) {
         setNumber(1);
@@ -49,15 +51,19 @@ public class MainFormController {
     }
 
     public void devOnAction(MouseEvent mouseEvent) {
+        exec('/');
     }
 
     public void plusOnAction(MouseEvent mouseEvent) {
+        exec('+');
     }
 
     public void minusOnAction(MouseEvent mouseEvent) {
+        exec('-');
     }
 
     public void multiplyOnAction(MouseEvent mouseEvent) {
+        exec('*');
     }
 
     public void equalOnAction(MouseEvent mouseEvent) {
@@ -70,5 +76,11 @@ public class MainFormController {
         }
         else{
         txtInput.setText(txtInput.getText()+number);}
+    }
+
+    private void exec(char exep){
+        this.exep=exep;
+        numOne =Double.parseDouble(txtInput.getText());
+        txtInput.clear();
     }
 }
