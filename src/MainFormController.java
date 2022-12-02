@@ -4,6 +4,7 @@ import javafx.scene.input.MouseEvent;
 public class MainFormController {
     public TextField txtInput;
     private double numOne=0;
+    private double numtwo=0;
     private char exep='+';
 
     public void numOneOnAction(MouseEvent mouseEvent) {
@@ -80,7 +81,36 @@ public class MainFormController {
 
     private void exec(char exep){
         this.exep=exep;
-        numOne =Double.parseDouble(txtInput.getText());
-        txtInput.clear();
+         if(numOne==0){
+             numOne =Double.parseDouble(txtInput.getText());
+             txtInput.clear();
+         }
+         else{
+             numtwo =Double.parseDouble(txtInput.getText());
+             calculate();
+         }
+
+    }
+
+    private void calculate(){
+        double answer=0.0;
+        switch(exep){
+            case '+': answer=numOne+numtwo;
+            break;
+
+            case '*': answer=numOne*numtwo;
+            break;
+
+            case '-': answer=numOne-numtwo;
+            break;
+
+            case '/': answer=numOne/numtwo;
+            break;
+
+        }
+
+        txtInput.setText(String.valueOf(answer));
+        numOne=0;
+        numtwo=0;
     }
 }
