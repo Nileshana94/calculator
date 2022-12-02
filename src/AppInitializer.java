@@ -21,7 +21,7 @@ public class AppInitializer extends Application {
         Scene scene = new Scene(load);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.setTitle("Login Form");
+        primaryStage.setTitle("Basic Calculator");
 
     }
 }
